@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Snake Quiz Game with Wider Field</title>
+    <link rel="stylesheet" href="snakequiz.css">
+    
+  </head>
+  <body>
+    <div id="gameControls">
+      <button id="startGame">Start Game</button>
+    </div>
+
+    <canvas id="gameCanvas" width="800" height="400"></canvas>
+    <div id="question"></div>
+    <input type="text" id="answer" style="display: none" />
+    <button id="submit" style="display: none">Submit Answer</button>
+
+    <div id="userQuestionForm">
+      <h3>Add Your Own Questions:</h3>
+      <input type="text" id="userQuestion" placeholder="Enter your question" />
+      <input type="text" id="userAnswer" placeholder="Enter the answer" />
+      <button id="addQuestion">Add Question</button>
+    </div>
+
+    <div id="questionList">
+      <h3>Current Questions:</h3>
+      <ul id="questions"></ul>
+    </div>
+
+    <script src="snakequiz.js"></script
+  </body>
+</html>

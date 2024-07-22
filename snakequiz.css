@@ -1,0 +1,32 @@
+<style>
+      body {
+        margin: 0;
+        padding: 20px;
+        overflow-x: hidden;
+      }
+      body.game-active {
+        overflow: hidden;
+      }
+      canvas {
+        border: 1px solid black;
+        display: none;
+      }
+      #question,
+      #userQuestionForm,
+      #gameControls {
+        font-size: 20px;
+        margin-top: 10px;
+      }
+      #answer,
+      input[type='text'] {
+        font-size: 18px;
+        margin-top: 5px;
+      }
+      button {
+        font-size: 18px;
+        margin-top: 5px;
+      }
+      #questionList {
+        margin-top: 20px;
+      }
+    </style>
