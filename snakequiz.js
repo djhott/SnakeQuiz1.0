@@ -1,3 +1,11 @@
+/*
+Doug's Snake Quiz Game
+Version 1.0
+This JavaScript sets up the variables that hold the current values in the html div IDs.
+Questions are held in this file, although a future update will attempt to use an external file
+that can be updated outside of the code. Functions set up the game space and update the game board
+and questionss.
+*/
 const canvas = document.getElementById('gameCanvas')
 const ctx = canvas.getContext('2d')
 const questionElement = document.getElementById('question')
@@ -34,6 +42,7 @@ let questions = [
   },
 ]
 
+//add or delete a question from the list
 function updateQuestionList() {
   questionsList.innerHTML = ''
   questions.forEach((q, index) => {
@@ -50,6 +59,7 @@ function updateQuestionList() {
   })
 }
 
+//draw the green snake on the board while game is active
 function drawSnake() {
   ctx.fillStyle = 'green'
   snake.forEach((segment) => {
@@ -57,11 +67,13 @@ function drawSnake() {
   })
 }
 
+//draw red food on the canvas while game is active
 function drawFood() {
   ctx.fillStyle = 'red'
   ctx.fillRect(food.x, food.y, boxSize, boxSize)
 }
 
+//check snake position and update as player moves snake
 function moveSnake() {
   const head = { ...snake[0] }
   switch (direction) {
@@ -88,6 +100,7 @@ function moveSnake() {
   }
 }
 
+//create new food on the game canvas when eaten by the snake
 function generateFood() {
   food = {
     x: Math.floor(Math.random() * (canvasWidth / boxSize)) * boxSize,
@@ -95,6 +108,7 @@ function generateFood() {
   }
 }
 
+//check if the snake has not collided with the wall
 function checkCollision() {
   const head = snake[0]
   if (
@@ -113,6 +127,7 @@ function checkCollision() {
   return false
 }
 
+//update the score as red food and questions are answered
 function drawScore() {
   ctx.fillStyle = 'black'
   ctx.font = '20px Arial'
@@ -120,6 +135,7 @@ function drawScore() {
   ctx.fillText(`Questions: ${questionCount}/5`, 10, 60)
 }
 
+//run the gameLoop while the game is active to check for food encounter and collisions
 function gameLoop() {
   ctx.clearRect(0, 0, canvasWidth, canvasHeight)
   moveSnake()
@@ -132,6 +148,7 @@ function gameLoop() {
   drawScore()
 }
 
+//start the game when player hits Start button
 function startGame() {
   snake = [{ x: 400, y: 200 }]
   direction = 'right'
@@ -147,6 +164,7 @@ function startGame() {
   document.body.classList.add('game-active')
 }
 
+//ask a questions when red food is consumed
 function askQuestion() {
   clearInterval(game)
   if (questionCount >= 5) {
@@ -180,6 +198,7 @@ function askQuestion() {
   }
 }
 
+//display end game message with reason of game ending
 function endGame(reason) {
   clearInterval(game)
   alert(`${reason}\nGame Over!\nFinal Score: ${score}`)
@@ -190,6 +209,7 @@ function endGame(reason) {
   document.body.classList.remove('game-active')
 }
 
+//add an event listener to check arrow key strokes
 document.addEventListener('keydown', (e) => {
   if (['ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight'].includes(e.key)) {
     e.preventDefault()
@@ -210,6 +230,7 @@ document.addEventListener('keydown', (e) => {
   }
 })
 
+//check for clicks to add a new question and answer
 addQuestionButton.addEventListener('click', () => {
   const newQuestion = userQuestionInput.value.trim()
   const newAnswer = userAnswerInput.value.trim()
@@ -224,9 +245,11 @@ addQuestionButton.addEventListener('click', () => {
   }
 })
 
+//check for start game button click
 startGameButton.addEventListener('click', () => {
   startGameButton.style.display = 'none'
   startGame()
 })
 
+//update the questions list with current question set
 updateQuestionList()

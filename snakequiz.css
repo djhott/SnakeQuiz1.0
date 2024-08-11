@@ -1,3 +1,9 @@
+/*
+Doug's Snake Quiz Game
+Version 1.0
+This CSS sets up basic layout to hold the canvas and the question section. Future
+revisions will add a bit more style.
+*/
 <style>
       body {
         margin: 0;
