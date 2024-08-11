@@ -88,7 +88,7 @@ Distributed under the MIT License. See `LICENSE.txt` for more information.
 
 ## Contact
 
-Your Name - doughott@gmail.com
+Doug Hott - doughott@gmail.com
 
 Project Link: [https://github.com/djhott/SnakeQuiz1.0](https://github.com/djhott/SnakeQuiz1.0)
 
@@ -98,6 +98,6 @@ Project Link: [https://github.com/djhott/SnakeQuiz1.0](https://github.com/djhott
 
 ## Acknowledgments
 
-- [Claude AI Assistant](https://claude.ai)
+- [Claude AI Assistant used to create inital snake canvas setup. I asked Claude for initial ideas for the canvas. Claude put everything in one html file, but I used some of Claude's ideas and cleaned up the rest to be shorter, I separated the JavaScript and CSS, and finally made Claude's code easier to read. Then I built in question functionality.](https://claude.ai)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
